@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Busybox
+  labels:
+    app: Busybox
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: Busybox
+  template:
+    metadata:
+      labels:
+        app: Busybox
+    spec:
+      containers:
+      - name: nginx:latest
+        image: busybox
+        ports:
+        - containerPort: 3000
